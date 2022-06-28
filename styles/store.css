@@ -1,0 +1,79 @@
+/* ============== ITEM =============== */
+
+body #app #store-page {
+    margin: 0rem 1rem;
+}
+
+body #app #store-page #item-area {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+body #app #store-page #item-area .item {
+    width: 23%;
+    aspect-ratio: 2 / 3;
+    margin: 1%;
+
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+body #app #store-page #item-area .item .image-container {
+    display: block;
+    width: 80%;
+    height: 40%;
+    margin: 1rem auto;
+}
+
+body #app #store-page #item-area .item .image-container img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+}
+
+body #app #store-page #item-area .item .info-container {
+    display: block;
+    width: 100%;
+    height: 30%;
+    padding: 0rem 1rem;
+}
+
+body #app #store-page #item-area .item .info-container .title-text {
+    font-size: 1.15rem;
+}
+
+body #app #store-page #item-area .item .info-container .price-text {
+    font-style: italic;
+}
+
+body #app #store-page #item-area .item .button-container {
+    display: block;
+    width: 100%;
+    margin: 1rem 0rem;
+}
+
+body #app #store-page #navbar {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(235,235,235,1);
+    padding-bottom: 1rem;
+}
+
+body #app #store-page #navbar #checkout-button {
+    display: block;
+    font-size: 2rem;
+    width: fit-content;
+    margin: auto;
+    background-color: rgba(215,215,215,1);
+    padding: .5rem 2rem;
+} body #app #store-page #navbar #checkout-button:hover {
+    cursor: pointer;
+} body #app #store-page #navbar .disabled {
+    color: rgba(75,75,75,1);
+    cursor: default !important;
+}

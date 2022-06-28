@@ -1,0 +1,29 @@
+body #app #welcome-page {
+    display: grid;
+    grid-template-rows: 1fr max-content 2fr;
+
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+body #app #welcome-page #center-row {
+    grid-row: 2 / 3;
+}
+
+body #app #welcome-page #center-row h1 {
+    font-size: 4rem;
+    padding: 2rem;
+}
+
+body #app #welcome-page #center-row #enter-store-button {    
+    font-family: inherit;
+    font-size: 3rem;
+    border: none;
+    background-color: rgba(0, 0, 0, .2);
+    padding: 1rem 3rem;
+    transition: 2s;
+} body #app #welcome-page #center-row #enter-store-button:hover {
+    background-color: rgba(0, 0, 0, .1);
+    cursor: pointer;
+}

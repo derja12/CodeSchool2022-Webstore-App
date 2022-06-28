@@ -1,29 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Amazon 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/body.css">
+    <link rel="stylesheet" href="styles/store.css">
+    <link rel="stylesheet" href="styles/welcome.css">
+    <title>Amazon 2.0</title>
 </head>
 <body>
     <div id="app">
         <!-- ======= WELCOME PAGE ======= -->
         <div v-if="page == 'welcome'" id="welcome-page">
-            <h1>Welcome to the Amazon 2.0</h1>
-            <button v-on:click="setPage('store')">Enter Store</button>
+            <div id="center-row">
+                <h1>Welcome to the Amazon 2.0</h1>
+                <button id="enter-store-button" v-on:click="setPage('store')">Enter Store</button>
+            </div>
         </div>
 
         <!-- ======= STORE PAGE ======= -->
-        <div v-else-if="page == 'store'" id="store-page">
-            <product v-for="(product, index) in products" 
-                     v-bind:item="product"
-                     v-bind:addfunction="addToShoppingCart"
-                     v-bind:cart="Vuecart"
-                     v-bind:key="index">
-            </product>
+        <div v-else-if="page == 'store'" 
+             id="store-page"
+             class="page">
+            <div id="navbar">
+                Items in Cart: {{ Vuecart.length }}
+                <div id="checkout-button" 
+                     v-on:click="setPage('checkout')"
+                     v-bind:class="{disabled: Vuecart.length <= 0}">Checkout</div>
+            </div>
+            <div id="item-area">
+                <product v-for="(product, index) in products" 
+                         v-bind:item="product"
+                         v-bind:cart="Vuecart"
+                         v-bind:key="index"
+                         class="item">
+                </product>
+            </div>
         </div>
         
         <!-- ======= CHECKOUT PAGE ======= -->
         <div v-else-if="page == 'checkout'" id="checkout-page">
+            <checkout-item v-for="(product, index) in Vuecart"
+                           v-bind:key="index"
+                           >
 
+            </checkout-item>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

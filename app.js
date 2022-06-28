@@ -3,14 +3,16 @@ const API_URL = "https://fakestoreapi.com";
 Vue.component("product", {
     template: `
     <div>
-        <div>
-            <img v-on:click="addfunction(item)" v-bind:src="item.image">
-            {{ item.price }}
+        <div class="image-container">
+            <img v-on:click="addToCart()" v-bind:src="item.image">
+        </div>
+        <div class="info-container">
+            <h3>{{ shortenedTitle }}</h3>
+            <p>{{ shortenedDescription }} <i>\${{ item.price }}</i></p>
+        </div>
+        <div class="button-container">
             <button v-on:click="addToCart()">
-                Add to cart with component method
-            </button>
-            <button v-on:click="addfunction(item)">
-                Add to cart with Vue instance method
+                Add to cart
             </button>
         </div>
     </div>
@@ -18,11 +20,26 @@ Vue.component("product", {
     props: {
         "item": Object,
         "cart": Array,
-        "addfunction": Function,
     },
     methods: {
         addToCart: function () {
             this.cart.push(this.item);
+        }
+    },
+    computed: {
+        shortenedTitle: function () {
+            if (this.item.title.length > 40) {
+                return this.item.title.slice(0,39).trim() + "...";
+            } else {
+                return this.item.title;
+            }
+        },
+        shortenedDescription: function () {
+            if (this.item.description.length > 60) {
+                return this.item.description.slice(0,59).trim() + "...";
+            } else {
+                return this.item.description;
+            }
         }
     }
 })
@@ -43,15 +60,11 @@ var app = new Vue({
 
             this.products = data;
         },
-        addToShoppingCart: function (thing) {
-            this.Vuecart.push(thing);
-        },
         setPage: function (page) {
             this.page = page;
         }
     },
     created: function () {
-        console.log("hello")
         this.getProducts();
     }
 });
