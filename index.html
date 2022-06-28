@@ -49,6 +49,22 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- File containing Component Object (
+        const PRODUCT = {
+            template: ...
+            props: ...
+        }
+    )-->
+    <script src="components.js"></script>
+    <!-- File containing Vue Instance (
+        var app = new Vue({
+            el: ...
+            data: ...
+            components: {
+                'product': PRODUCT 
+            }
+        } 
+    )-->
     <script src="app.js"></script>
 </body>
 </html>
