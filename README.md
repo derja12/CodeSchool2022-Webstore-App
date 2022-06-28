@@ -19,3 +19,5 @@ Day 2 Webstore Application Features
     (each of these 'page' components will further contain components)
 ### 9. Separate components into their own files
 ### 10. Add a backend for users & their carts
+### 11. Add a stock amount field to each product
+    (the user can no longer buy an infinite amount of each item)
